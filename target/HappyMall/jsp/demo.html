@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/demo.action">
+    <input type="text" name="list[0].admin" value="22"/>
+
+    <input type="text" name="list[0].password" value="22"/>
+    <input type="text" name="list[1].admin" value="22"/>
+
+    <input type="text" name="list[1].password" value="22"/>
+    <input type="text" name="list[2].admin" value="22"/>
+    <input type="text" name="list[2].password" value="22"/>
+    <input type="submit" value="ss"/>
+</form>
+<script src="/layui-v2.4.5/layui/layui.js"></script>
+<script>
+    layui.use('layer',function () {
+        layer.msg("ss")
+    })
+</script>
+</body>
+</html>
