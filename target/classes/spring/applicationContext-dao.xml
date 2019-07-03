@@ -14,9 +14,9 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
         ">
-<!--加载数据源-->
+    <!--加载数据源-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
-<!--c3p0连接池-->
+    <!--c3p0连接池-->
     <bean id="dataSourse" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="${jdbc.driver}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
@@ -24,13 +24,13 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-<!--sqlSessionFactory-->
+    <!--sqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSourse"/>
         <property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml"/>
     </bean>
-<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="mapper"/>
-    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-</bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
 </beans>

@@ -1,8 +1,10 @@
 package controller;
 
+import mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.*;
 import service.OrderImpl;
 
@@ -16,12 +18,13 @@ import java.util.List;
 @Controller
 public class demo {
     @Autowired
-    OrderImpl orderimpl;
-    @RequestMapping("/demo")
-    public void demo(TestPOJO testPOJO)throws Exception{
+    AdminMapper adminMapper;
+    @RequestMapping("/test")
+    @ResponseBody
+    public String demo()throws Exception{
 
-        List<Order> order= orderimpl.findUserAndOrderDetail();
-        return;
+        Admin order= adminMapper.getById(3,"1234");
+        return order.getAdmin();
     }
 
 }

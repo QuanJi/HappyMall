@@ -114,7 +114,6 @@ public class CartOrderManage {
         order.setUserId(order.getUser().getId());
         order.setCreateTime(new java.sql.Date(System.currentTimeMillis()));
         orderImpl.InsertOrder(order);
-
         return info;
     }
 

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.Goods;
 import pojo.Order;
 import pojo.OrderDetail;
-import pojo.UserAndDetail;
 import service.GoodsInterfaceServiceImpl;
 import service.OrderDetailImpl;
 import service.OrderImpl;

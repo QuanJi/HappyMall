@@ -77,7 +77,7 @@
         }
        else{
             $("#remember").val("0")
-            console.log($("#online").val());
+            $("form[name=submit]").submit();
 
         }
     }
@@ -100,13 +100,7 @@ $(document).ready(function () {
        }
 
     }
-    $(document).ready(function () {
-        <% HttpServletRequest request1=request;
-        HttpSession httpSession=session;
-        HttpSession session1=request1.getSession();
-        %>
-        console.log('<%=request.getSession().getId()%>')
-    })
+
 
 })
 
