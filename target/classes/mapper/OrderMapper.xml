@@ -179,6 +179,15 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
+
+
+  <select id="findUserAndOrderDetail" resultMap="UserAndOrderDetail">
+    SELECT `user`.id user_id,`user`.user,`user`.password,`user`.regist_time,`order`.*,
+           order_detail.id order_detail_id,order_detail.goods_id,order_detail.order_id detail_order_id,
+           order_detail.number FROM `user`,`order`,order_detail
+    WHERE user.id=`order`.user_id AND order_detail.order_id=`order`.id
+
+  </select>
   <resultMap id="UserAndOrderDetail" type="pojo.Order">
     <id column="id" property="id"/>
     <result column="user_id" property="userId"/>
@@ -197,15 +206,9 @@
       <result column="number" property="number"/>
     </collection>
   </resultMap>
-
-  <select id="findUserAndOrderDetail" resultMap="UserAndOrderDetail">
-    SELECT `user`.id user_id,`user`.user,`user`.password,`user`.regist_time,`order`.*,
-           order_detail.id order_detail_id,order_detail.goods_id,order_detail.order_id detail_order_id,
-           order_detail.number FROM `user`,`order`,order_detail
-    WHERE user.id=`order`.user_id AND order_detail.order_id=`order`.id
-
+  <select id="findOrder"  resultMap="UserAndOrderDetail">
+    select * from `user`,`order`,order_detail  where`user`.id=`order`.user_id AND order_detail.order_id=`order`.id
   </select>
-
 
 
 

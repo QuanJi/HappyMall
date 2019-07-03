@@ -179,7 +179,5 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-  <select id="getById"  resultType="pojo.Admin">
-    select * from admin where id=#{0} and admin=#{1}
-  </select>
+
 </mapper>

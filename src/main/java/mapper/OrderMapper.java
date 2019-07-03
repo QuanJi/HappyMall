@@ -14,11 +14,8 @@ public interface OrderMapper {
     int insert(Order record);
 
     int insertSelective(Order record);
+
     int getMaxID();
-    List<Order> selectByExample(OrderExample example);
-    /*订单和订单明细表的一对多查询*/
-    List<Order> findUserAndOrderDetail();
-    Order selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Order record, @Param("example") OrderExample example);
 
@@ -27,4 +24,9 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+    List<Order> selectByExample(OrderExample example);
+    /*订单和订单明细表的一对多查询*/
+    List<Order> findUserAndOrderDetail();
+    Order selectByPrimaryKey(Long id);
+
 }
